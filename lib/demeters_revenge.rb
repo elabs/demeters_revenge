@@ -5,8 +5,6 @@ end
 
 module DemetersRevenge
   VERSION = "0.2"
-  
-  class MultipleTransmogrification < RuntimeError; end
 end
 
 Dir[File.join(File.dirname(__FILE__), "demeters_revenge/**/*.rb")].each do |lib|

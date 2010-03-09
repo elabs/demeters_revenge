@@ -2,10 +2,6 @@ module DemetersRevenge
   module HasManyExtensions
     
     def self.included(base)
-      if base.respond_to?(:has_many_without_transmogrifiers)
-        raise DemetersRevenge::MultipleTransmogrification
-      end
-      
       base.instance_eval do
         class << self
           
