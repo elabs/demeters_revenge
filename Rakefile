@@ -1,47 +1,23 @@
-require 'rake'
-require 'rake/testtask'
-require 'rake/rdoctask'
-require 'spec/spec_helper'
-require 'spec/rake/spectask'
+require 'rubygems'
+gem 'hoe', '>= 2.1.0'
+require 'hoe'
+require 'fileutils'
+require './lib/demeters_revenge'
 
-desc 'Default: run all specs.'
-task :default => :spec
+Hoe.plugin :newgem
+# Hoe.plugin :website
+# Hoe.plugin :cucumberfeatures
 
-task :spec => ['spec:all']
-
-namespace :spec do
-  
-  desc "Run all specs in the spec directory"
-  Spec::Rake::SpecTask.new('all') do |t|
-    t.spec_files = FileList['spec/**/*_spec.rb']
-    t.spec_opts  = %w(--color)
-  end
-  
-  desc "Run all specs in the spec directory in specdox mode"
-  Spec::Rake::SpecTask.new('dox') do |t|
-    t.spec_files = FileList['spec/**/*_spec.rb']
-    t.spec_opts  = %w(--color -f specdoc)
-  end
-  
-  desc "Run functional specs (requires sqlite3)"
-  Spec::Rake::SpecTask.new('examples') do |t|
-    t.spec_files = FileList['examples/**/*_examples.rb']
-    t.spec_opts  = %w(--color)
-  end
-  
-  desc "Start up autotest for specs"
-  task :auto do
-    require 'spec/spec_autotest'
-    RspecAutotest.run
-  end  
-  
+# Generate all the Rake tasks
+# Run 'rake -T' to see list of generated tasks (from gem root directory)
+$hoe = Hoe.spec 'demeters_revenge' do
+  self.developer 'Luke Redpath', 'wearenotlukeredpath@elabs.se'
+  self.rubyforge_name       = self.name # TODO this is default value
 end
 
-desc 'Generate documentation for the demeters_revenge plugin.'
-Rake::RDocTask.new(:rdoc) do |rdoc|
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'DemetersRevenge'
-  rdoc.options << '--line-numbers' << '--inline-source'
-  rdoc.rdoc_files.include('README')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end
+require 'newgem/tasks'
+Dir['tasks/**/*.rake'].each { |t| load t }
+
+# TODO - want other tests/tasks run by default? Add them to the list
+# remove_task :default
+# task :default => [:spec, :features]
