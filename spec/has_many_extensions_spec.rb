@@ -11,15 +11,7 @@ describe "ActiveRecord class with has_many extension mixed in" do
     @klass.expects(:has_many_without_transmogrifiers).with(:widgets)
     DemetersRevenge::HasManyExtensions.expects(:inject_transmogrifiers).with(@klass, :widgets)
     @klass.send(:has_many, :widgets)
-  end
-  
-  it "should raise if you try and include the extension more than once" do
-    proc do 
-      @klass.send(:include, DemetersRevenge::HasManyExtensions)
-      
-    end.should raise_error(DemetersRevenge::MultipleTransmogrification)
-  end
-  
+  end  
 end
 
 describe "ActiveRecord object after transmogrifiers injected for has_many :widgets" do

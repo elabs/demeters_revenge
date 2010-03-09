@@ -13,13 +13,6 @@ describe "ActiveRecord class with has_and_belongs_to_many extension mixed in" do
     @klass.send(:has_and_belongs_to_many, :widgets)
   end
   
-  it "should raise if you try and include the extension more than once" do
-    proc do 
-      @klass.send(:include, DemetersRevenge::HasAndBelongsToManyExtensions)
-      
-    end.should raise_error(DemetersRevenge::MultipleTransmogrification)
-  end
-  
 end
 
 describe "ActiveRecord object after transmogrifiers injected for has_and_belongs_to_many :widgets" do
