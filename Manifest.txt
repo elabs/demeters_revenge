@@ -2,6 +2,7 @@ History.txt
 Manifest.txt
 README.rdoc
 Rakefile
+demeters_revenge.gemspec
 examples/example_spec_helper.rb
 examples/has_and_belongs_to_many_examples.rb
 examples/has_many_examples.rb

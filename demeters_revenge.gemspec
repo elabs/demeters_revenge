@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.description = %q{Demeter is back with a vengeance. Prevent your models from violating his sacred law and you shall be spared.}
   s.email = ["wearenotlukeredpath@elabs.se"]
   s.extra_rdoc_files = ["History.txt", "Manifest.txt"]
-  s.files = ["History.txt", "Manifest.txt", "README.rdoc", "Rakefile", "examples/example_spec_helper.rb", "examples/has_and_belongs_to_many_examples.rb", "examples/has_many_examples.rb", "lib/demeters_revenge.rb", "lib/demeters_revenge/has_and_belongs_to_many_extensions.rb", "lib/demeters_revenge/has_many_extensions.rb", "script/console", "script/destroy", "script/generate", "spec/has_and_belongs_to_many_spec.rb", "spec/has_many_extensions_spec.rb", "spec/spec_autotest.rb", "spec/spec_helper.rb"]
+  s.files = ["History.txt", "Manifest.txt", "README.rdoc", "Rakefile", "demeters_revenge.gemspec", "examples/example_spec_helper.rb", "examples/has_and_belongs_to_many_examples.rb", "examples/has_many_examples.rb", "lib/demeters_revenge.rb", "lib/demeters_revenge/has_and_belongs_to_many_extensions.rb", "lib/demeters_revenge/has_many_extensions.rb", "script/console", "script/destroy", "script/generate", "spec/has_and_belongs_to_many_spec.rb", "spec/has_many_extensions_spec.rb", "spec/spec_autotest.rb", "spec/spec_helper.rb"]
   s.homepage = %q{http://github.com/elabs/demeters_revenge}
   s.rdoc_options = ["--main", "README.rdoc"]
   s.require_paths = ["lib"]
